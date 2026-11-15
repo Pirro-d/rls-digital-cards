@@ -1,293 +1,318 @@
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,Helvetica,sans-serif}body{background:#e8e8e8;display:flex;justify-content:center}.card{position:relative;isolation:isolate;overflow:hidden;width:min(100%,430px);min-height:100svh;background:linear-gradient(125deg,#000 48%,#272727 100%);color:white;display:flex;flex-direction:column;box-shadow:0 0 22px #0002}.top{height:40svh;min-height:310px;max-height:390px;background:#f5f5f5;color:#292a2b;text-align:center;position:relative;z-index:1;padding:22px 12px 0}.logo{width:min(270px,76%);height:220px;object-fit:contain;display:block;margin:0 auto 5px;mix-blend-mode:multiply}h1{font-size:26px;letter-spacing:1.5px;margin:0;font-weight:900}.role{font-size:19px;letter-spacing:1px;font-weight:800;color:#b71d27;margin:4px 0}.curve{position:absolute;pointer-events:none;left:-20%;width:145%;height:150px;border-radius:50% 50% 0 0 / 80% 80% 0 0;transform:rotate(-12deg);transform-origin:center;z-index:2}.curve-red{top:calc(40svh - 5px);background:#d0131c}.curve-gray{top:calc(40svh + 34px);background:#777;z-index:3}.bottom{position:relative;z-index:4;flex:1;padding:clamp(95px,13svh,135px) 24px 18px;display:flex;flex-direction:column;align-items:center}.save{border:0;border-radius:8px;background:linear-gradient(90deg,#f01521,#970d17);color:white;font-size:20px;font-weight:800;letter-spacing:.3px;cursor:pointer;padding:17px 20px;width:min(265px,100%)}.save:hover{filter:brightness(1.1)}.actions{display:flex;justify-content:space-between;width:min(290px,100%);gap:16px;margin-top:28px}.action{color:#fff;text-decoration:none;display:flex;align-items:center;gap:9px;flex-direction:column;font-weight:700;font-size:17px}.circle{width:60px;height:60px;border:2px solid #fff;border-radius:50%;display:grid;place-items:center}.circle svg{width:35px;height:35px;fill:currentColor}.action:hover,.social a:hover{opacity:.75}.note{font-size:12px;color:#ddd;text-align:center;min-height:15px;margin:15px 0 0}.social{position:relative;z-index:5;min-height:59px;background:linear-gradient(100deg,#ef1522,#9c1119);display:flex;justify-content:center;align-items:center;gap:23px}.social a{width:32px;height:32px;border:2px solid white;border-radius:50%;display:grid;place-items:center;color:white;text-decoration:none;font-size:24px;font-weight:bold;line-height:1}.social a:last-child{font-size:17px}.social svg{width:23px;height:23px}@media(max-height:740px){.top{height:315px;min-height:315px}.curve-red{top:310px}.curve-gray{top:347px}.bottom{padding-top:105px}}@media(min-height:900px){.bottom{padding-top:150px}}
 
+* {
+  box-sizing: border-box;
+}
 
-/* RLS Illustrator background */
+html, body {
+  margin: 0;
+  min-height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background: #e8e8e8;
+  display: flex;
+  justify-content: center;
+}
+
 .card {
-  background-image: url("images/RLS_DBC_background.jpg");
-  background-size: 100% 100%;
-  background-position: center top;
-  background-repeat: no-repeat;
-}
-
-/* Remove the old CSS background */
-.top {
-  background: transparent;
-}
-
-/* Hide the old CSS curves */
-.curve-red,
-.curve-gray {
-  display: none;
-}
-
-/* Use the footer from the Illustrator artwork */
-.social {
-  background: transparent;
-}
-
-
-/* Red separator underneath RLS logo */
-.logo-separator {
-  width: 32px;
-  height: 4px;
-  background-color: #d71932;
-  border-radius: 1px;
-  margin: -8px auto 12px;
+  --scale: 1;
   position: relative;
-  z-index: 2;
-}
-
-
-/* Adjust logo spacing */
-.logo {
-  height: auto;
-  max-height: 220px;
-  margin-bottom: 0;
-}
-
-/* Position red separator */
-.logo-separator {
-  width: 32px;
-  height: 4px;
-  background-color: #d71932;
-  border-radius: 1px;
-  margin: 3px auto 12px;
-}
-
-
-/* Custom SVG action icons */
-.circle img {
-  width: 35px;
-  height: 35px;
-  object-fit: contain;
-  display: block;
-}
-
-
-
-/* Larger contact icons */
-.circle {
-  width: 68px;
-  height: 68px;
-}
-
-.circle img {
-  width: 40px;
-  height: 40px;
-}
-
-/* Larger social media icons */
-.social a {
-  width: 36px;
-  height: 36px;
-}
-
-
-/* Align contact actions with CTA width */
-.actions {
-  width: min(265px, 100%);
-  justify-content: space-between;
-  gap: 8px;
-}
-
-
-/* Keep the business card proportions consistent */
-.card {
+  isolation: isolate;
+  overflow: hidden;
   width: min(100%, 430px);
-  min-height: 0;
-  aspect-ratio: 430 / 1000;
-  background-size: 100% 100%;
-}
-
-/* Position the upper content */
-.top {
-  height: 39%;
-  min-height: 0;
-  max-height: none;
-}
-
-/* Keep contact buttons in their section */
-.bottom {
-  flex: 1;
-  padding-top: 100px;
-}
-
-/* Keep social media footer at the bottom */
-.social {
-  margin-top: auto;
-}
-
-/* Prevent old responsive rules from changing layout */
-@media (max-height: 740px) {
-  .top {
-    height: 39%;
-    min-height: 0;
-  }
-
-  .bottom {
-    padding-top: 100px;
-  }
-}
-
-@media (min-height: 900px) {
-  .bottom {
-    padding-top: 100px;
-  }
-}
-
-
-/* Preserve the Illustrator background proportions */
-.card {
-  width: min(100%, 430px);
-  min-height: 0;
-  height: auto;
   aspect-ratio: 1 / 2;
-  background-size: 100% 100%;
+  background: url("images/RLS_DBC_background.jpg")
+    center / 100% 100% no-repeat;
+  color: white;
+  box-shadow: 0 0 22px #0002;
 }
 
-
-/* Responsive layout based on 800 x 1600 artwork */
-.card {
-  display: block;
-  position: relative;
-}
-
+/* Upper content */
 .top {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 40%;
-  min-height: 0;
-  max-height: none;
-  padding: 0;
-  background: transparent;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  color: #292a2b;
+  z-index: 2;
 }
 
+.logo {
+  width: 58%;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
+  display: block;
+  margin: 7% auto 0;
+  mix-blend-mode: multiply;
+}
+
+.logo-separator {
+  order: 2;
+  width: 32px;
+  height: 4px;
+  background: #d71932;
+  border-radius: 1px;
+  margin: 5px auto 8px;
+  transform: translateY(-5px);
+}
+
+.top h1 {
+  order: 3;
+  font-size: clamp(20px, 5.6vw, 24px);
+  letter-spacing: 1.5px;
+  font-weight: 900;
+  margin: 0;
+}
+
+.top .role {
+  order: 4;
+  font-size: clamp(12px, 3.3vw, 14px);
+  letter-spacing: 1px;
+  font-weight: 800;
+  color: #b71d27;
+  margin: 4px 0 0;
+}
+
+/* Curves are included in Illustrator artwork */
+.curve-red,
+.curve-gray {
+  display: none;
+}
+
+/* Contact buttons */
 .bottom {
   position: absolute;
-  top: 52%;
+  top: calc(52% + 20px);
   left: 0;
   width: 100%;
   padding: 0 24px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  z-index: 4;
 }
 
+.save {
+  width: min(265px, 100%);
+  border: 0;
+  border-radius: 8px;
+  padding: 17px 20px;
+  background: linear-gradient(90deg, #f01521, #970d17);
+  color: white;
+  font-size: 18px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  cursor: pointer;
+}
+
+.save:hover {
+  filter: brightness(1.1);
+}
+
+.actions {
+  display: flex;
+  justify-content: space-between;
+  width: min(265px, 100%);
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.action {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.action .circle {
+  width: 55px;
+  height: 55px;
+  border: 2px solid white;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.action img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  display: block;
+}
+
+.action:hover,
+.social a:hover {
+  opacity: .75;
+}
+
+.note {
+  font-size: 12px;
+  color: #ddd;
+  text-align: center;
+  min-height: 15px;
+  margin: 15px 0 0;
+}
+
+/* Footer */
 .social {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
-  min-height: 0;
   height: 7%;
-  margin: 0;
   background: transparent;
-}
-
-/* Disable the old CSS curves */
-.curve-red,
-.curve-gray {
-  display: none;
-}
-
-
-
-/* Keep logo and text clear of the red curve */
-.top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 36%;
-  padding: 0 12px 25px;
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-
-.logo {
-  width: min(285px, 82%);
-  height: 170px;
-  object-fit: contain;
-  transform: scale(1.15);
-  transform-origin: center bottom;
-  margin: 0 auto 4px;
-}
-
-.top h1 {
-  margin-top: 0;
-}
-
-.top .role {
-  margin-top: 4px;
-}
-
-/* FINAL LOGO GROUP POSITIONING */
-
-.top {
-  top: 0;
-  height: 40%;
-  padding: 45px 12px 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-}
-
-.logo {
-  height: 170px;
-  width: min(250px, 76%);
-  object-fit: contain;
-  flex-shrink: 0;
-  margin: 0 auto 4px;
-}
-
-/* Keep red separator close to logo */
-.logo-separator {
-  margin: 3px auto 12px;
-}
-
-/* Maintain text spacing */
-.top h1 {
-  margin-top: 0;
-}
-
-.top .role {
-  margin-top: 4px;
-}
-
-/* Center social icons vertically */
-.social {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 18px;
   padding: 0;
-  box-sizing: border-box;
+  z-index: 5;
 }
 
 .social a {
+  width: 36px;
+  height: 36px;
+  border: 2px solid white;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0;
-}
-
-.social a {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
   transform: translateY(-2px);
 }
 
+.social a:last-child {
+  font-size: 17px;
+}
+
+.social svg {
+  width: 23px;
+  height: 23px;
+}
+
+/* Small phones */
+@media (max-width: 390px) {
+  .logo {
+    width: 56%;
+  }
+
+  .top h1 {
+    font-size: 22px;
+  }
+
+  .top .role {
+    font-size: 12px;
+  }
+
+  .save {
+    font-size: 17px;
+    padding: 14px 18px;
+  }
+
+  .actions {
+    margin-top: 22px;
+  }
+}
+
+.social {
+  bottom: 0;
+  height: 7%;
+  z-index: 10;
+  background: linear-gradient(90deg, #ef1522, #9c1119);
+}
+
+/* Fix footer positioning */
+.card {
+  position: relative;
+}
+
+.social {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 7%;
+  min-height: 0;
+  z-index: 20;
+  background: linear-gradient(90deg, #ef1522, #9c1119);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: visible;
+}
 
 
 
+/* Center the complete logo and name group */
+.top {
+  top: 0;
+  height: 40%;
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: none;
+}
 
+/* Consistent spacing between elements */
+.logo {
+  margin: 0 auto 8px;
+}
 
+.logo-separator {
+  margin: 4px auto 14px;
+}
+
+.top h1 {
+  margin: 0;
+}
+
+.top .role {
+  margin: 6px 0 0;
+  transform: none;
+}
+
+.top {
+  transform: translateY(15px);
+}
+
+/* Move the entire upper group slightly higher */
+@media screen and (max-width: 600px) {
+  .top {
+    transform: translateY(-22px);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .top {
+    transform: translateY(-10px);
+  }
+
+  .logo {
+    height: 150px;
+    max-height: 150px;
+  }
+}
+
+/* Move Save Contact button and icons down */
+.contact-actions {
+    transform: translateY(40px);
+}
