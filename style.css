@@ -312,7 +312,55 @@ body {
   }
 }
 
-/* Move Save Contact button and icons down */
-.contact-actions {
-    transform: translateY(40px);
+
+/* RESPONSIVE ADJUSTMENTS */
+
+/* Standard and larger phones */
+@media screen and (min-height: 750px) {
+  .card {
+    min-height: 100svh;
+  }
+}
+
+/* Shorter phones, including iPhone SE */
+@media screen and (max-height: 700px) {
+
+  .card {
+    aspect-ratio: auto;
+    height: 100svh;
+    min-height: 667px;
+  }
+
+  .top {
+    transform: translateY(-15px);
+  }
+
+  .logo {
+    height: 125px;
+    max-height: 125px;
+    width: 56%;
+  }
+
+  .bottom {
+    top: 54%;
+  }
+
+  .actions {
+    margin-top: 20px;
+  }
+
+  .social {
+    height: 7%;
+    bottom: 0;
+  }
+}
+
+.top .role {
+  margin-top: 0;
+  transform: translateY(-2px);
+}
+
+/* Slightly enlarge the complete upper content */
+.top {
+  scale: 1.08;
 }
